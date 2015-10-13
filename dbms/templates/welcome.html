@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+   
+<head>
+	<title>All Papers</title>
+
+	<style type="text/css">
+
+        body {
+    padding-top: 50px;
+    }
+    .content{
+        padding: 40px 15px;
+        text-align: center;
+    }
+
+    ul{
+        list-style: none;
+    }
+    
+
+
+	</style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Welcome {{ firstname }} {{ lastname }}</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/profile/">EDIT PROFILE</a></li>
+            <li><a href="/logout/">LogOut</a></li>
+            <li><a href="/viewall/">View Papers</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="content">
+    <div class="row">
+    <div class="col-md-6">
+      <h3>About</h3>
+<table class="table table-striped">
+
+<tr><td>Name: </td>   <td class="list-group-item">{{ user.first_name}} {{ user.last_name}}</td> </tr>
+<tr> <td> Email: </td> <td> {{user.email}} </td> </tr>
+<tr> <td> Profession</td> <td> {{user.proffesion}} </td></tr>
+<tr> <td>Current University: </td> <td> {{user.cur_university}} </td> </tr>
+<tr> <td> Sex: </td> <td> {{user.sex}} </td></tr>
+<tr>  <td> Country: </td> <td>{{user.country}} </td> </tr>
+<tr>  <td> Location: </td> <td> {{user.location}} </td> </tr>
+</table>
+    </div>
+  <div class="col-md-6">
+      <h3>Interests</h3>
+      <ul class="list-group"> 
+    {% if interest_topic %}
+
+    {% for item in  interest_topic%}
+    <li class="list-group-item">{{ item }}</li> <!--  <a href="link?val=1"><img width="20px" height="20px" src="/static/images/delete.jpg"></a>-->
+    {% endfor %}
+
+    {% else %}
+      <h3>There are No Interests</h3>
+    {% endif %}
+    </ul>
+  </div>
+  </div> 
+
+<div class="paper-list">
+   {% if paper_list %}
+    <ul>
+    <h3 class="sub-header"> Research Papers Uploaded</h3>
+    {% for item in  paper_list %}
+      <div class="col-xs-6 col-sm-3"  class="bg-primary"><li><a href="/viewer/?id={{ item.link }}">
+      <img class="img-responsive" src="/static/images/essay74.png" height="200px" width="200px">
+      <h4>{{ item.title }}</h4></a></li> </div>
+    {% endfor %}
+
+    {% else %}
+
+<h1>    There are no research papers to show </h1>
+
+{% endif %}
+
+ 
+</ul>
+
+</div>
+
+</div>
+
+
+
+</body>
+</html>

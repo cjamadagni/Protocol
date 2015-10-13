@@ -1,0 +1,44 @@
+from django.template.loader import get_template
+from django.template import Context
+from django.http import HttpResponse
+from django.shortcuts import render
+from django import forms
+from django.forms import ModelForm
+from models import PUser
+import datetime
+
+class SignupForm(form.Forms):
+    class Meta:
+        model = User
+        fields = '__all__' 
+
+
+def launch(request):
+    return render(request, 'main.html');    
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            print "hello"
+            fname = request.POST['first_name']
+            print fname
+            '''
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']   
+            email = form.cleaned_data['email']
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['pass']
+            proffesion = form.cleaned_data['proffesion']
+            cur_university = form.cleaned_data['cur_university']
+            sex = form.cleaned_data['sex']
+            country = form.cleaned_data['country']
+            location = form.cleaned_data['location']
+            form.save()
+            '''
+            # form.save()
+            return HttpResponse('form is submitted')
+            
+
+
+            

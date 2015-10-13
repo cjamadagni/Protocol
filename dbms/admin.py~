@@ -1,0 +1,7 @@
+from django.contrib import admin
+from dbms.models import PUser,Topic
+from papers.models import Paper
+
+admin.site.register(PUser)
+admin.site.register(Topic)
+admin.site.register(Paper)

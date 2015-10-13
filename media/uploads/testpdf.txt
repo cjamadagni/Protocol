@@ -1,0 +1,245 @@
+CHIRAG JAMADAGNI
+Phone: +91-990-253-7778 (Mobile)
+Email: chirag.jamadagni@gmail.com
+SUMMARY
+●
+●
+●
+●
+●
+
+Currently pursuing my undergraduate degree in Computer engineering at National Institute of Technology Karnataka,
+Surathkal.
+Proven track record of quick learning abilities and excellent academic scores.
+Successfully completed internships at Xerox and MOOG India Technology Center.
+Excellent knowledge of programming concepts.
+Excellent communication and interpersonal skills.
+
+OBJECTIVE
+To seek a challenging internship position to enhance my practical knowledge in the field of Computer engineering and
+Information Technology.
+
+ACADEMIC DETAILS
+
+Examination
+
+Course
+
+Institute
+
+Year
+
+CGPA / %
+
+Undergraduate
+
+Computer Engineering
+
+NITK Surathkal
+
+2013-2017
+
+8.47
+
+Intermediate/ +2
+
+Pre-University (Senior Secondary)
+
+Deeksha Center for Learning
+
+2013
+
+98%
+
+Matriculation
+
+Indian Council of Secondary
+Education
+
+Bishop Cotton Boys’ School
+
+2011
+
+90%
+
+FIELDS OF INTEREST
+Operating Systems, Distributed Computing Systems, Cloud Computing, Cyber Security, Data Analytics, Cloud portal
+development, Computer Networks, Web and Application development, Automated software testing, Data Structures and
+Algorithms.
+
+TECHNICAL SKILLS:
+Operating systems
+
+:
+
+Windows, Ubuntu
+
+DBMS
+
+:
+
+MySQL, PostgreSQL, SQLite
+
+Languages
+
+:
+
+C, C++, Java, Python, HTML5, JavaScript, jQuery, CSS, PHP, R
+
+Web Framework
+
+:
+
+Django, Laravel, CodeIgnitor, Drupal, Django Rest Framework, Bootstrap, Materialize,
+AngularJS(basics)
+
+Tools
+
+:
+
+Selenium, Liferay Portal, MS Office, Nagios, Latex, Logisim, Visual Studio,
+Eclipse, Android Studio, Github, NS-3
+
+INTERNSHIP EXPERIENCE
+Surathkal Innovation Labs – Mangalore, India
+
+June 2015 - Present
+
+Full Stack Developer
+
+
+
+Responsibilities include developing, testing and debugging components of ConCat.
+ConCat is an online research conference portal and is the company’s main product.
+
+MOOG India Technology Center – Bangalore, India
+
+June 2015 – July 2015
+
+Research Intern
+
+
+
+
+
+Objective: Build an operating system for flight controls on a Jetson TK1 chip utilizing all cores efficiently.
+Was part of exploratory research to verify whether MOOG’s flight systems could adapt to multicore architecture.
+Studied various existing Multicore operating systems and built a linux flavoured embedded system with an
+abstract multi core layer on top using scheduler functions and system calls.
+Benchmarked its performance on the Tegra board, a quad core board by NVIDIA.
+
+Xerox IT Services – Bangalore, India
+
+May 2014 – July 2014
+
+Intern – Cloud Services
+
+
+
+
+
+Responsibilities included developing test cases, test scripts using Selenium for the Xerox IaaS cloud portal.
+Improving the UI/UX of their cloud portal.
+Developed Liferay portlets to monitor the status or servers and onboard new customers.
+Integrating the Nagios server monitoring tool with the Xerox cloud portal.
+
+PROJECTS
+●
+
+Paper on Multi core Operating Systems
+March 2015 – Present
+A paper documenting and comparing the various features of different multi core(multi kernel) operating systems
+like Barrelfish, HeliOS, Corey, GenerOS, etc. This paper is currently undergoing a final review.
+
+
+
+Algorithm to identify all bots in a given network
+August 2015 – Present
+To develop a new distributive algorithm to identify all bots in a given network using CRM and Bot Detection
+method. Capture Recapture Method (CRM) is popular in biology for determining population sizes. It is based on
+the birthday paradox. End goal is to publish a paper on our findings.
+
+
+
+Cooperative Black Hole Attack Simulation
+Understanding and simulating a cooperative black hole attack in NS-3.
+
+
+
+Video Calling Application using webRTC
+August 2015 – September 2015
+A video call, chat and file sharing application for local area networks. Built using PeerJS, Node.js and webRTC,
+getUserMedia, RTCPeerConnection and RTCDataChannel components used.
+
+September 2105 – Present
+
+
+
+Research Conference Portal
+August 2015 – Present
+A web based research conference portal using Django framework and PostgreSQL. Project for database
+management systems lab.
+
+
+
+Web Application for Private Conversations
+September 2015 – Present
+A chat application which allows users to securely converse and transfer files. Application is a chrome extension
+and Off The Record (OTR) encryption is used.
+
+
+
+Virtual Memory Simulator
+March 2015 – April 2015
+Building a virtual memory simulator to demonstrate multiple page replacement algorithms.
+
+●
+
+Scheduling Algorithms on nachOS
+March 2015
+Implementation and comparison of different scheduling algorithms on the nachOS environment.
+
+●
+
+College Grading System
+February 2015 – April 2015
+An automated grading system where Faculty members upload student grades, Grade point average is calculated
+and report card’s are generated and sent to the students.
+
+●
+
+Twitter Sentiment Analysis
+December 2014 – May 2015
+Categorizing tweets based on emotion. Developing an application to automatically classify a tweet based on
+emotion. Application is able to identify and correct improper grammar.
+
+●
+
+IEEE Project – PHP and MySQL
+May 2014 – July 2014
+Developed online super market system using PHP and MySQL. Features included registration, selection of
+merchandise, check-in, check-out and customer feedback. Also developed and online course registration system.
+
+ACCOMPLISHMENTS/AWARDS
+❖ Competed and won first place in NASA Space Settlement design competition.
+❖ Received award from Bishop Cotton Boys’ school for academic excellence (for scoring 90% in ICSE board
+exams).
+
+❖ Received award from Deeksha Center for Learning for excellent scoring in 12th board exams.
+❖ Part of the Organizing committee for annual science fest – iCube.
+❖ Sports captain in the year 2012-2013.
+❖ Member of the NITK basketball team.
+❖ Member of ISTE tech club.
+
+INTEREST AND HOBBIES
+●
+●
+●
+●
+
+Solving puzzles and Number problems
+Outdoor and Indoor sports.
+Reading Novels and Autobiographies.
+Challenging myself.
+
+

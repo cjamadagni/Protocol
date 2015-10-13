@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+   
+<style type="text/css">
+    body {
+    padding-top: 50px;
+    }
+    
+    .content{
+        padding: 40px 15px;
+    }
+
+    ul{
+        list-style: none;
+    }
+    
+
+
+</style>
+
+	<title></title>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Welcome {{ firstname }} {{ lastname }}</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/profile/">EDIT PROFILE</a></li>
+            <li><a href="/logout/">LogOut</a></li>
+            <li><a href="/viewall/">View Papers</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+<div class="content">
+
+ <h2 class="page-header">  Following are your research topics: </h2>
+<div>
+<ul class="list-group">
+
+{% for item in  interest_topic%}
+    <li class="list-group-item">{{ item }}</li> <!--  <a href="link?val=1"><img width="20px" height="20px" src="/static/images/delete.jpg"></a>-->
+{% endfor %}
+</ul>
+</div>
+
+Provide your areas of interest:
+<form action="/add_topic/" method="post">{% csrf_token %}
+<select class="form-control col-md-6"  name="subject">
+{% for item in topics%}
+
+  <option  class="form-control" value="{{ item.value }}">{{ item.title}} </option>
+<!--   <option value="2">Data_Structures</option>
+  <option value="3">Operating_System</option>
+  <option value="4">Data_Communication</option>
+ -->
+{% endfor%}
+ </select>
+
+<input type="submit" value="submit" class="btn btn-primary btn-lg">
+</form>	
+
+
+
+Provide your areas of interest for deletion:
+<form action="/delete_topic/" method="post">{% csrf_token %}
+<select class="form-control col-md-6"  name="subject">
+{% for item in topics%}
+
+  <option  class="form-control" value="{{ item.value }}">{{ item.title}} </option>
+<!--   <option value="2">Data_Structures</option>
+  <option value="3">Operating_System</option>
+  <option value="4">Data_Communication</option>
+ -->
+{% endfor%}
+ </select>
+
+<input type="submit" value="Delete" class="btn btn-primary btn-lg">
+</form> 
+
+
+
+
+<div class="sub-header">
+<h2 class="sub-header"> Enter the Details of Schooling</h2>
+
+ <form action="/addschool/" method="post"> {% csrf_token %}
+<!--   <label for="school_name">School Name</label>-->
+	<div >
+ 	<input type="text" name="school_name" id="inputSuccess3" class="form-control" placeholder="School_name" required/>
+ 	</div>
+ 	<div >
+ 	<input type="text" name="st_date" id="st_name" class="form-control" placeholder="StartDate" required/>
+ 	</div>
+ 	<div >
+ 	<input type="text" name="end_date" id="end_date" class="form-control" placeholder="EndData" required/>
+ 	</div>
+ 	<div >
+ 	<input type="text" name="degree_at" id="degree_at" class="form-control" placeholder="Degree Attained" required/>
+ 	</div>
+
+ 	<div>
+ 	<input type="submit" value="Submit" class="btn btn-primary btn-lg">
+
+    </div>
+ </form>
+
+</div>
+<div>
+{% if schools %}
+
+
+  
+<div>
+<h1> School Details </h1>
+  <table class="table table-striped">
+  	<tr> 
+  	<th>School Name</th>	
+  	<th>Start Date</th>
+  	<th>End Date</th>
+  	<th>Degree Attained</th>
+  	</tr>
+    {% for item in schools %}
+    <tr>
+    	<td>{{ item.school_name }}</td>
+    	<td>{{ item.start_time }}</td>
+    	<td>{{ item.end_time }}</td>
+    	<td>{{ item.degree }}</td>
+    </tr>
+    {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    There are no schooling details Do you want to add ??
+{% endif %}
+
+</div>
+
+Give the choice for deletion
+<form action="/delete_school/" method="post">{% csrf_token %}
+<select class="form-control col-md-6" name="sch">
+{% for item in school_del %}
+
+  <option  class="form-control" value="{{ item.id }}">{{ item.school_name}} </option>
+<!--   <option value="2">Data_Structures</option>
+  <option value="3">Operating_System</option>
+  <option value="4">Data_Communication</option>
+ -->
+{% endfor%}
+ </select>
+
+<input type="submit" value="Delete" class="btn btn-primary btn-lg">
+</form> 
+
+
+</div>
+</div>
+
+
+</body>
+</html>
