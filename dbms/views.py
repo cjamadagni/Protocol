@@ -37,6 +37,12 @@ def lnch(request):
     return response
 
 #Added by me
+def startup(request):
+    response = render(request, 'homepage.html')
+    return response
+    
+
+#Added by me
 def sign_up(request):
     printit()
     cookie_value = id_generator()

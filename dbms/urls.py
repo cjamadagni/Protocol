@@ -16,6 +16,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^signingin/',lnch),
+    url(r'^$',startup),
     url(r'^signup/$',signup),
     url(r'^signin/$',signin),
     url(r'^check/$',check),
