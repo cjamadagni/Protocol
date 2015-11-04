@@ -12,7 +12,7 @@ class Author(models.Model):
 '''        
 
 class Paper(models.Model):
-    title = models.CharField(max_length=100,default=None)
+    title = models.CharField(max_length=200,default=None)
     paper_file = models.FileField(upload_to='uploads')
     UserProfile = models.ForeignKey(UserProfile)
     #tags = models.ManyToManyField(Topic, default='NONE',null=True)
@@ -20,6 +20,7 @@ class Paper(models.Model):
     broadDomain1 = models.CharField(max_length=100,default='null', null=True)
     broadDomain2 = models.CharField(max_length=100,default='null', null=True)
     description = models.TextField(null=True,default='null')
+    conference = models.CharField(max_length=200,null=True,default='null')
     #authors = models.ManyToManyField(Author, default=None)
     #UserProfile_id = models.ForeignKey(UserProfile)
     #date_publish = models.CharField(max_length=12,default=None)

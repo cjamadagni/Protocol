@@ -111,6 +111,7 @@ def upload(request):
         broadDomain1 = request.POST['broadDomain1']
         broadDomain2 = request.POST['broadDomain2']
         description = request.POST['description']
+        conference = request.POST['conference']
         #tags = request.POST['tags']
         #t = tags.split(',')
         #print t
@@ -133,7 +134,7 @@ def upload(request):
         #pap = Paper.objects.get(title=paper_title)
         #for i in p:
         #    pap.tags.add(int(i))
-        paper = Paper.objects.create(title=paper_title,paper_file=uploaded,UserProfile=userprofile,views=0,broadDomain1=broadDomain1,broadDomain2=broadDomain2, description=description)
+        paper = Paper.objects.create(title=paper_title,paper_file=uploaded,UserProfile=userprofile,views=0,broadDomain1=broadDomain1,broadDomain2=broadDomain2, description=description, conference=conference)
 
         convert(paper_title)
         return render(request,'thanks.html',{'message': 'Research Paper Uploaded'})
@@ -191,7 +192,8 @@ def viewer(request):
     title = result.title
     comment_list = get_paper_comments(paper_id)
     comment_list.reverse()
-    paper = {'url': url, 'title': title,'comment_list': comment_list,'paper_id': paper_id,'views': result.views}
+    conference = result.conference
+    paper = {'url': url, 'title': title,'comment_list': comment_list,'paper_id': paper_id,'views': result.views, 'conference' : conference}
     #return render(request, 'frame.html',{'paper': paper})
     return render(request, 'viewpaper.html',{'paper': paper})
 

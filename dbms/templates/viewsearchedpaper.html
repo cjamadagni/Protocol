@@ -60,15 +60,12 @@
     <div class="content">
     <br>
     <br>
-    <a href="/mypapers/" style="margin-left:10px"><font size="4">Back to My Papers</font></a>
+    <a href="/searchedpapers/" style="margin-left:10px"><font size="4">Back to My Papers</font></a>
     <br>
     <br>
-<center><h3 class="page-header teal-text text-lighten-2">
+<center><h3 class="page-header">
   {{paper.title}}
 </h3></center>
-<br>
-<br>
-<center><h5 class = " teal-text text-lighten-2">{{paper.conference}}</h5></center>
 <br>
 <br>
 <div>
@@ -76,11 +73,11 @@
 </div>
 
 <div>
-<h3 style="margin-left:20px;"> <img src="/static/images/view.png" height="50px" width="50px" /> {{paper.views}} Views</h3>  
+<h3> <img src="/static/images/view.png" height="50px" width="50px" /> {{paper.views}} Views</h3>  
 </div>
-<div class="sub-header" id="comments" style="margin-left:20px;">
+<div class="sub-header" id="comments">
 
-  <h2 class = " teal-text text-lighten-2">Comments</h2>  
+  <h2 >Comments</h2>  
 <div>
 {% if paper.comment_list %} 
 
@@ -116,19 +113,19 @@
 <br>
 <br>
 <br>
-<div  class="sub-header" id='commentbox' class="" style="margin-left:20px;">
-<h2 class = " teal-text text-lighten-2" >Add Comment</h2>
+<div  class="sub-header" id='commentbox' class="">
+<h2 >Add Comment</h2>
 
   
      <form class="col s12" id='commentform' name="commentform" method="post" action="/add_comment/"> {% csrf_token %} 
              <div class="row">
-          <div class="input-field col s4">
+          <div class="input-field col s6">
             <input id="input_text" type="text" length="25" id="subject" name = "subject">
             <label for="input_text">Subject</label>
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12">
             <textarea id="textarea1" class="materialize-textarea" length="500" id="content" name="content"></textarea>
             <label for="textarea1">Content</label>
           </div>

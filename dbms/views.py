@@ -13,6 +13,11 @@ from one import printit
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.db.models import Q
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+import random
+from django.core.mail import EmailMessage
+from django.http import HttpResponseRedirect, Http404
 
 from django.conf import settings
 
@@ -60,7 +65,7 @@ def upload_paper(request):
 
 def user_logout(request):
     logout(request)
-    return render(request, 'main.html')
+    return render(request, 'homepage.html')
 
 def return_home(request):
     return render(request,'profilehome.html')
@@ -78,12 +83,13 @@ def signup(request):
             pwd = request.POST['pass']
         except:
             pwd = ''    
-        #proffesion = request.POST['proffesion']
+        profession = request.POST['profession']
         cur_university = request.POST['cur_university']
         #sex = request.POST['sex']
         #country = request.POST['country']
         #location = request.POST['location']
         #data = {'first_name': fname, 'last_name': lname, 'email': email, 'username': username, 'password': pwd, 'proffesion': proffesion, 'cur_university': cur_university, 'sex': sex, 'country': country, 'location': location}
+       
         try:
             user = User.objects.create_user(username,email,pwd)
             user.save()
@@ -92,9 +98,30 @@ def signup(request):
             return render(request, 'error.html', error)
         #data = {'user':user,'first_name': fname, 'last_name': lname, 'email': email, 'username': username, 'password': pwd, 'proffesion': 'NULL', 'cur_university': cur_university, 'sex': 'M', 'country': 'NULL', 'location': 'NULL'} 
         #form = SignupForm(data)
-        userprofile = UserProfile.objects.create(user=user,first_name=fname,last_name=lname,email=email,username=username,password=pwd,proffesion='NULL',cur_university=cur_university,sex='M',country= 'NULL',location='NULL')
+        userprofile = UserProfile.objects.create(user=user,first_name=fname,last_name=lname,email=email,username=username,password=pwd,proffesion=profession,cur_university=cur_university,sex='M',country= 'NULL',location='NULL')
         userprofile.save()
-    return render(request, 'main.html') 
+        n=random.randint(1000,9999)
+        request.session['randkey'] = str(n)
+        email = EmailMessage('Protocol Team', 'Your account creation key is '+str(n)+'. Enter this to procced\nThank you', to=[email])
+        email.send()
+    
+    return render(request, 'emailvalidation.html') 
+
+
+
+def emailValidate(request):
+    if request.method == 'POST':
+        key = request.POST['key']
+
+        if key == request.session['randkey']:
+            return HttpResponseRedirect('/signingin/')
+        else:
+            error = {'error': 'Invalid Key'}
+            return render(request, 'error.html', error)
+
+
+            
+
             
 def get_session_cookie(request):
     if request.COOKIES.has_key('id'):
@@ -124,7 +151,7 @@ def get_paper_list(request):
 
 def get_user_details(request):
     userprofile = UserProfile.objects.get(user=request.user)
-    user_details = {'first_name':userprofile.first_name, 'last_name':userprofile.last_name, 'email':userprofile.email, 'cur_university':userprofile.cur_university}
+    user_details = {'first_name':userprofile.first_name, 'last_name':userprofile.last_name, 'email':userprofile.email, 'cur_university':userprofile.cur_university, 'profession':userprofile.proffesion}
     return render(request, 'userprofile.html',{'userdetails': user_details})    
 
 #Search filter
@@ -159,11 +186,13 @@ def update_user_info(request):
         lname = request.POST['last_name']
         email = request.POST['email']
         cur_university = request.POST['cur_university']
+        profession = request.POST['profession']
         userprofile = UserProfile.objects.get(user=request.user)
         userprofile.first_name = fname
         userprofile.last_name = lname
         userprofile.email = email
         userprofile.cur_university = cur_university
+        userprofile.proffesion = profession
         userprofile.save()
         return render(request, 'profilehome.html')
 
@@ -267,9 +296,9 @@ def signin(request):
             
         else:
             # Return a 'disabled account' error message
-            error =  {'error': 'password or username do not match'}
+            error =  {'error': 'Invalid log in credentials'}
     else:
-        error = {'error': 'username do not exist'}
+        error = {'error': 'Invalid log in credentials'}
     return render(request, 'error.html', error)
 
 
@@ -319,7 +348,7 @@ def get_schooling(request):
 
 def edit_profile(request):
     userprofile = UserProfile.objects.get(user=request.user)
-    user_details = {'first_name':userprofile.first_name, 'last_name':userprofile.last_name, 'email':userprofile.email, 'cur_university':userprofile.cur_university}
+    user_details = {'first_name':userprofile.first_name, 'last_name':userprofile.last_name, 'email':userprofile.email, 'cur_university':userprofile.cur_university, 'profession':userprofile.proffesion}
     return render(request, 'editprofile.html',{'userdetails': user_details})
 
     

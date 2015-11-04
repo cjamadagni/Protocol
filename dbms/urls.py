@@ -40,6 +40,7 @@ urlpatterns = patterns('',
     url(r'^userprofile',get_user_details),
     url(r'^updateinfo',update_user_info),
     url(r'^returnhome',return_home),
+    url(r'^email_validate',emailValidate),
     url(r'^searchedpapers',get_searched_papers),
 
     #url(r'^%s/' % '', include('dajaxice.urls')),
