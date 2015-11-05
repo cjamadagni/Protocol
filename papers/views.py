@@ -128,17 +128,14 @@ def upload(request):
         if not Paper.objects.filter(title=paper_title).count()==0:
             error={'error':'file already present'}
             return render(request, 'error.html', error)
-        
-        #obj = Paper(title=paper_title,paper_file=uploaded,UserProfile=userprofile)
-        #obj.save()
-        #pap = Paper.objects.get(title=paper_title)
-        #for i in p:
-        #    pap.tags.add(int(i))
-        paper = Paper.objects.create(title=paper_title,paper_file=uploaded,UserProfile=userprofile,views=0,broadDomain1=broadDomain1,broadDomain2=broadDomain2, description=description, conference=conference)
 
-        convert(paper_title)
-        return render(request,'thanks.html',{'message': 'Research Paper Uploaded'})
-        #return render(request,'profilehome.html')
+        if (".pdf" in str(paper_title)) or (".docx" in str(paper_title)):               
+            paper = Paper.objects.create(title=paper_title,paper_file=uploaded,UserProfile=userprofile,views=0,broadDomain1=broadDomain1,broadDomain2=broadDomain2, description=description, conference=conference)
+
+            convert(paper_title)
+            return render(request,'thanks.html',{'message': 'Research Paper Uploaded'})
+        else:
+            return render(request,'thanks.html',{'message': 'Unsupported File type'})
         
 
 
