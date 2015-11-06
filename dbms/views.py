@@ -169,9 +169,9 @@ def get_searched_papers(request):
         userprofile = UserProfile.objects.get(user=request.user)
         paper_list = []
         if papername == "None":
-            paper_data = Paper.objects.filter(Q(broadDomain1=broadDomain) | Q(broadDomain2=broadDomain)).order_by('-views')
+            paper_data = Paper.objects.filter(Q(broadDomain1=broadDomain) | Q(broadDomain2=broadDomain)).order_by('-rating').order_by('-views')
         else:
-            paper_data = Paper.objects.filter(Q(broadDomain1=broadDomain) | Q(broadDomain2=broadDomain)).filter(title__contains=papername).order_by('-views')
+            paper_data = Paper.objects.filter(Q(broadDomain1=broadDomain) | Q(broadDomain2=broadDomain)).filter(title__contains=papername).order_by('-rating').order_by('-views')
 
         if paper_data:
             for data in paper_data:

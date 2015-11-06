@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 #from dbms.views import lnch,signup,signin,check,edit_profile,add_topic,view_all_papers,addschool,welcome,filterpaper,delete_topic,delete_school,user_logout,sign_up,upload_paper
 from dbms.views import *
-from papers.views import upload,viewer,add_comment,search
+from papers.views import upload,viewer,add_comment,search,add_rating
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
@@ -27,6 +27,7 @@ urlpatterns = patterns('',
     url(r'^upload/',upload),
     url(r'^viewer/',viewer),
     url(r'^add_comment/',add_comment),
+    url(r'^add_rating/',add_rating),
     url(r'^viewall',view_all_papers),
     #url(r'^search',search),
     url(r'^addschool',addschool),

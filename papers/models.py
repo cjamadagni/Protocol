@@ -21,6 +21,7 @@ class Paper(models.Model):
     broadDomain2 = models.CharField(max_length=100,default='null', null=True)
     description = models.TextField(null=True,default='null')
     conference = models.CharField(max_length=200,null=True,default='null')
+    rating = models.FloatField(default=0.0)
     #authors = models.ManyToManyField(Author, default=None)
     #UserProfile_id = models.ForeignKey(UserProfile)
     #date_publish = models.CharField(max_length=12,default=None)

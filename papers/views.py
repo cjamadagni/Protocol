@@ -190,7 +190,7 @@ def viewer(request):
     comment_list = get_paper_comments(paper_id)
     comment_list.reverse()
     conference = result.conference
-    paper = {'url': url, 'title': title,'comment_list': comment_list,'paper_id': paper_id,'views': result.views, 'conference' : conference}
+    paper = {'url': url, 'title': title,'comment_list': comment_list,'paper_id': paper_id,'views': result.views, 'conference' : conference, 'rating':int(result.rating)}
     #return render(request, 'frame.html',{'paper': paper})
     return render(request, 'viewpaper.html',{'paper': paper})
 
@@ -213,13 +213,46 @@ def add_comment(request):
 
         url=result.paper_file.url
         title = result.title
+        conference = result.conference
         comment_list = get_paper_comments(paper_id)
-        paper = {'url': url, 'title': title,'comment_list': comment_list,'paper_id': paper_id,'views': result.views}
+        paper = {'url': url, 'title': title, 'conference' : conference,'comment_list': comment_list,'paper_id': paper_id,'views': result.views, 'rating':int(result.rating)}
         #return render(request, 'frame.html',{'paper': paper})
         return render(request, 'viewpaper.html',{'paper': paper})
         #return HttpResponse(json.dumps({'status': '200'}))
 
     return HttpResponse(json.dumps({'status': 501}))
+
+#view to add ratings
+def add_rating(request):
+    if request.method=='POST':
+        paper_id = request.POST['paper_id']
+        rating_value = request.POST['group1']
+        paper = Paper.objects.get(id=paper_id)
+        
+        try:
+            userprofile = UserProfile.objects.get(user = request.user)
+            print userprofile
+        except:
+            print sys.exc_info()
+
+        current_rating = paper.rating
+        new_rating = (0.7 * current_rating) + (0.3 * float(rating_value))
+        #paper.rating = float(rating_value)
+        paper.rating = new_rating
+        print paper.rating
+        paper.save()
+        conference = paper.conference
+        url=paper.paper_file.url
+        title = paper.title
+        comment_list = get_paper_comments(paper_id)
+        paper = {'url': url, 'title': title, 'conference' : conference,'comment_list': comment_list,'paper_id': paper_id,'views': paper.views, 'rating':int(paper.rating)}
+        return render(request, 'viewpaper.html',{'paper': paper})
+
+
+
+
+
+
 
 
 def listen(request):

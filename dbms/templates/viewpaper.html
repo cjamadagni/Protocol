@@ -76,8 +76,48 @@
 </div>
 
 <div>
-<h3 style="margin-left:20px;"> <img src="/static/images/view.png" height="50px" width="50px" /> {{paper.views}} Views</h3>  
+<h3 style="margin-left:20px;"> <img src="/static/images/view.png" height="50px" width="50px" /> {{paper.views}}&nbsp;&nbsp; Views</h3>  
 </div>
+<br>
+<br>
+<font size = "8" class = " teal-text text-lighten-2" style="margin-left:20px;" > Rating : </font> 
+<div class="chip" size="4"> {{paper.rating}} </div>
+<div id = "rating form">
+<br>
+<form action="/add_rating/" id="ratingform" name="ratingform" style="margin-left:20px;" method="post"> {% csrf_token %} 
+    
+      <input name="group1" type="radio" id="test1" value="1" />
+      <label for="test1">1</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    
+      <input name="group1" type="radio" id="test2" value="2" />
+      <label for="test2">2</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    
+      <input name="group1" type="radio" id="test3" value="3"  />
+      <label for="test3">3</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    
+      <input name="group1" type="radio" id="test4" value="4"/>
+      <label for="test4">4</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <input name="group1" type="radio" id="test5" value="5"/>
+      <label for="test5">5</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+     <input type="hidden" id="paper_id" name="paper_id" value="{{paper.paper_id}}">
+
+      <button class="waves-effect waves-light btn" id="submit" type="submit" name="action" style="margin-left:10px;">Add Rating
+          <i class="material-icons right">send</i>
+        </button>
+    
+   
+
+  </form>
+
+
+</div>
+<br><br>
+
 <div class="sub-header" id="comments" style="margin-left:20px;">
 
   <h2 class = " teal-text text-lighten-2">Comments</h2>  
