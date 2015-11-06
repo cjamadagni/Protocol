@@ -70,6 +70,13 @@ def user_logout(request):
 def return_home(request):
     return render(request,'profilehome.html')
 
+#Getting the user profile of the comment author
+def userdetails(request,uid):
+    userprofile = UserProfile.objects.get(username=uid)
+    user_details = {'first_name':userprofile.first_name, 'last_name':userprofile.last_name, 'email':userprofile.email, 'cur_university':userprofile.cur_university, 'profession':userprofile.proffesion}
+    return render(request, 'usrdetails.html',{'userdetails': user_details})
+
+
     
 
 

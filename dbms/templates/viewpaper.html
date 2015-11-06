@@ -90,7 +90,7 @@
         <div class="col s12 m6">
           <div class="card teal darken-1">
             <div class="card-content white-text">
-              <span class="card-title">@{{ item.UserProfile_id }}</span>
+              <a class="card-title" href = "http://localhost:8000/userdetails/{{ item.UserProfile_id }}/">@{{ item.UserProfile_id }}</a>
               <br>
               <b><font size = "4">{{ item.subject}}</font></b>
               <p>{{item.content}}</p>
