@@ -43,6 +43,8 @@ urlpatterns = patterns('',
     url(r'^returnhome',return_home),
     url(r'^email_validate',emailValidate),
     url(r'^searchedpapers',get_searched_papers),
+    url(r'^about',about),
+    url(r'^team',team),
     url(r'^userdetails/(?P<uid>\w+)', userdetails),
 
     #url(r'^%s/' % '', include('dajaxice.urls')),

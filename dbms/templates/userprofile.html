@@ -30,7 +30,7 @@
     <!-- NAV BAR -->
     <nav>
 	    <div class="nav-wrapper teal lighten-2">
-	      <a href="#" class="brand-logo">Protocol</a>
+	      <a href="#" class="brand-logo" style="padding: 0px 0px 0px 20px">Protocol</a>
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/returnhome/">Home</a></li>
 	        <li><a href="/userprofile/">Profile</a></li>
@@ -43,16 +43,16 @@
     <!-- User Details -->
     <div name = "user_details" style="margin-top:75px;margin-left:85px;">
 
-    <div class="chip"> Name </div> <font size = "5"> {{userdetails.first_name}} {{userdetails.last_name}}
+    <div class="chip"><font size = "4"> Name:</font></div> <font size = "5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{userdetails.first_name}} {{userdetails.last_name}}
     <br>
     <br>
-    <div class="chip"> Email </div> {{userdetails.email}}
+    <div class="chip"><font size = "4"> Email:  </font></div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{userdetails.email}}
     <br>
     <br>
-    <div class="chip"> University </div> {{userdetails.cur_university}}
+    <div class="chip"> <font size = "4"> University:  </font> </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{userdetails.cur_university}}
     <br>
     <br>
-    <div class="chip"> Profession </div> {{userdetails.profession}}
+    <div class="chip"> <font size = "4"> Profession:  </font> </div> &nbsp;&nbsp;&nbsp;&nbsp;{{userdetails.profession}}
     <br>
     <br>
     
@@ -71,7 +71,7 @@
 
     <form action="/editprofile/">
 
-      <div style="margin-top:175px; margin-left:500px;">
+      <div style="margin-top:50px; margin-left:500px;">
         <button class="waves-effect waves-light btn-large" type="submit" name="action">Edit Profile
           <i class="material-icons left">toc</i>
         </button>

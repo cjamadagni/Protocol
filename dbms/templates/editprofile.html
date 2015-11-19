@@ -19,7 +19,7 @@
 				
 		<nav>
 		  <div class="nav-wrapper teal lighten-2">
-		    <a href="#!" class="brand-logo">Protocol</a>
+		    <a href="#!" class="brand-logo" style="padding: 0px 0px 0px 20px">Protocol</a>
 		    
 		  </div>
 		</nav>
@@ -27,7 +27,7 @@
 
 		<!-- Page Layout here -->
 		
-			<h1 class = " teal-text text-lighten-2">Edit Profile</h1>
+			<h3 class = " teal-text text-lighten-2" style="padding: 0px 0px 0px 20px">Edit Profile</h3>
 
 				<!--Signup form -->
 				<form class="col s12" action="/updateinfo/" method="post">{% csrf_token %}
@@ -64,7 +64,7 @@
 
 			      </div>
 
-			      <button class="waves-effect waves-light btn-large" style="margin-left:550px;" type="submit" name="action">Save Changes
+			      <button class="waves-effect waves-light btn-large" style="margin-left:550px;margin-top:20px" type="submit" name="action">Save Changes
     				<i class="material-icons right">send</i>
   				  </button>
 

@@ -46,7 +46,7 @@
     <!-- NAV BAR -->
     <nav>
 	    <div class="nav-wrapper teal lighten-2">
-	      <a href="#" class="brand-logo">Protocol</a>
+	      <a href="#" class="brand-logo" style="padding: 0px 0px 0px 20px">Protocol</a>
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/returnhome/">Home</a></li>
 	        <li><a href="/userprofile/">Profile</a></li>
@@ -60,7 +60,7 @@
     <div class="content">
     <br>
     <br>
-    <a href="/mypapers/" style="margin-left:10px"><font size="4">Back to My Papers</font></a>
+    <a href="/mypapers/" style="margin-left:30px"><font size="4">Back to My Papers</font></a>
     <br>
     <br>
 <center><h3 class="page-header teal-text text-lighten-2">
@@ -76,12 +76,11 @@
 </div>
 
 <div>
-<h3 style="margin-left:20px;"> <img src="/static/images/view.png" height="50px" width="50px" /> {{paper.views}}&nbsp;&nbsp; Views</h3>  
+<h4 style="margin-left:20px;" class="teal-text text-lighten-2"> <img src="/static/images/view.png" height="25px" width="25px" /> {{paper.views}}&nbsp;Views</h4>  
 </div>
 <br>
 <br>
-<font size = "8" class = " teal-text text-lighten-2" style="margin-left:20px;" > Rating : </font> 
-<div class="chip" size="4"> {{paper.rating}} </div>
+<font size = "7" class = " teal-text text-lighten-2" style="margin-left:20px;" > Rating: </font> <font size="7" class="grey-text">{{paper.rating}}</font>
 <div id = "rating form">
 <br>
 <form action="/add_rating/" id="ratingform" name="ratingform" style="margin-left:20px;" method="post"> {% csrf_token %} 
@@ -162,7 +161,7 @@
   
      <form class="col s12" id='commentform' name="commentform" method="post" action="/add_comment/"> {% csrf_token %} 
              <div class="row">
-          <div class="input-field col s4">
+          <div class="input-field col s6">
             <input id="input_text" type="text" length="25" id="subject" name = "subject">
             <label for="input_text">Subject</label>
           </div>
@@ -175,7 +174,7 @@
         </div>
         <div> <input type="hidden" id="paper_id" name="paper_id" value="{{paper.paper_id}}"> </div>
 
-        <button class="waves-effect waves-light btn-large" id="submit" type="submit" name="action" style="margin-left:10px;">Submit
+        <button class="waves-effect waves-light btn-large" id="submit" type="submit" name="action" style="margin-left:465px;">Submit
           <i class="material-icons right">send</i>
         </button>
 

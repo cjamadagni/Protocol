@@ -41,6 +41,17 @@ def lnch(request):
     response.set_cookie('id', cookie_value)
     return response
 
+#about page redirect
+def about(request):
+    response = render(request, 'about.html')
+    return response
+
+#team page redirect
+def team(request):
+    response = render(request, 'team.html')
+    return response
+
+
 #Added by me
 def startup(request):
     response = render(request, 'homepage.html')
@@ -109,7 +120,7 @@ def signup(request):
         userprofile.save()
         n=random.randint(1000,9999)
         request.session['randkey'] = str(n)
-        email = EmailMessage('Protocol Team', 'Your account creation key is '+str(n)+'. Enter this to procced\nThank you', to=[email])
+        email = EmailMessage('Protocol Team', 'Your account creation key is '+str(n)+'. Enter this to proceed\n\nThank you', to=[email])
         email.send()
     
     return render(request, 'emailvalidation.html') 

@@ -30,7 +30,7 @@
     <!-- NAV BAR -->
     <nav>
 	    <div class="nav-wrapper teal lighten-2">
-	      <a href="#" class="brand-logo">Protocol</a>
+	      <a href="#" class="brand-logo" style="padding: 0px 0px 0px 20px">Protocol</a>
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
 	        <li><a href="/userprofile/">Profile</a></li>
 	        <li><a href="/logout/">Log out</a></li>
@@ -43,7 +43,7 @@
     <form action = "/searchedpapers/" method = "post"> {% csrf_token %}
     <div class="row">
         
-        <div class="input-field col s3" style="margin-top:156px;margin-left:75px;">
+        <div class="input-field col s3" style="margin-top:156px;margin-left:125px;">
           <select name = "broadDomain">
             <option value="" disabled selected>Choose a Broad Domain</option>
             <option value="Computer Networks">Computer Networks</option>
@@ -75,7 +75,7 @@
 
     <form action="/uploadpaper/">
 
-    	<div style="margin-top:175px; margin-left:500px;">
+    	<div style="margin-top:50px; margin-left:500px;">
     		<button class="waves-effect waves-light btn-large" type="submit" name="action">Upload Paper
     			<i class="material-icons left">description</i>
   			</button>
@@ -96,9 +96,9 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">FAQ</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Team</a></li>
+                  <li><a class="grey-text text-lighten-3" href="/about/">About</a></li>
+                  <!-- <li><a class="grey-text text-lighten-3" href="#!">FAQ</a></li> -->
+                  <li><a class="grey-text text-lighten-3" href="/team/">Team</a></li>
                   
                 </ul>
               </div>
